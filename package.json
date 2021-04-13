@@ -2,7 +2,7 @@
   "name": "friendslist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://AmanKhan9.github.io/FavFriendsList",
+  "homepage": "http://AmanKhan9.github.io/ReactFavList",
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@testing-library/jest-dom": "^5.11.4",
