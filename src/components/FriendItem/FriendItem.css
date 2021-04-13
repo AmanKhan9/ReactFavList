@@ -1,0 +1,12 @@
+.buttonDiv {
+  text-align: right;
+}
+.buttonDiv button {
+  background: none;
+}
+.friend-row {
+  align-items: center;
+}
+.btn:focus {
+  box-shadow: none;
+}
