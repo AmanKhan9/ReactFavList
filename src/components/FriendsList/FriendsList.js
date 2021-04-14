@@ -16,6 +16,13 @@ export default function FriendsList(props) {
   }
   function addFriend(e) {
     if (e.key === "Enter" && inputValue !== "") {
+      for (let i = 0; i < friendsList.length; i++) {
+        if (friendsList[i].name.toLowerCase() === inputValue.toLowerCase()) {
+          alert("Friend name already exists");
+          return false;
+        }
+      }
+
       setFriendsList((prevList) => [
         ...prevList,
         { name: inputValue, isFavourite: false },
@@ -24,9 +31,12 @@ export default function FriendsList(props) {
   }
 
   function removeFriend(friendName) {
-    setFriendsList((prevList) =>
-      prevList.filter((friend) => friend.name !== friendName)
-    );
+    var result = window.confirm("Are you sure you want to delete this friend?");
+    if (result) {
+      setFriendsList((prevList) =>
+        prevList.filter((friend) => friend.name !== friendName)
+      );
+    }
   }
 
   function markFavourite(friendName) {
@@ -39,7 +49,7 @@ export default function FriendsList(props) {
           break;
         }
       }
-      console.log(updatedFriendsList);
+      // console.log(updatedFriendsList);
       return updatedFriendsList;
     });
   }
