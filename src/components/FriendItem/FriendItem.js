@@ -5,7 +5,11 @@ const FriendItem = React.memo(
     return (
       <>
         <div className='row friend-row col-md-12'>
-          <div className='col-md-6'>{name}</div>
+          <div className='col-md-6'>
+            {name}
+            <br />
+            <span className='subscript'>is your friend</span>
+          </div>
           <div className='col-md-6 buttonDiv'>
             <button
               type='button'

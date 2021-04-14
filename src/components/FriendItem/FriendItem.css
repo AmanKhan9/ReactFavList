@@ -10,3 +10,9 @@
 .btn:focus {
   box-shadow: none;
 }
+
+.subscript {
+  font-size: 12px;
+  font-weight: 500;
+  color: #afaaaa;
+}

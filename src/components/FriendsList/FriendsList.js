@@ -50,7 +50,7 @@ export default function FriendsList(props) {
     setCurrentPage((page) => page - 1);
   }
 
-  const getPaginatedData = () => {
+  const getPageData = () => {
     const startIndex = friendsPerPage * (currentPage - 1);
     const endIndex = startIndex + friendsPerPage;
     return friendsList.slice(startIndex, endIndex);
@@ -99,23 +99,30 @@ export default function FriendsList(props) {
 
   return (
     <>
-      <div className='col-md-4 mainDiv'>
-        <input
-          className='col-md-10'
-          onKeyPress={addFriend}
-          onChange={inputChangeHandler}
-          value={inputValue}
-          placeholder="Enter your friend's name"
-        />
-        <button onClick={searchFriend} className='btn-search col-md-1'>
-          <i class='fas fa-search'></i>
-        </button>
-        <button className='btn-sort col-md-1' onClick={sortRatings}>
-          <i class='fas fa-sort'></i>
-        </button>
+      <div className='col-md-4 col-sm-6 mainDiv'>
+        <div className='col-md-12 col-sm-12 head-div'>Friends List</div>
+        <div className='controls-div'>
+          <input
+            className='col-md-10 col-sm-8'
+            onKeyPress={addFriend}
+            onChange={inputChangeHandler}
+            value={inputValue}
+            placeholder="Enter your friend's name"
+            maxLength='40'
+          />
+          <button
+            onClick={searchFriend}
+            className='btn-search col-md-1 col-sm-2'
+          >
+            <i class='fas fa-search'></i>
+          </button>
+          <button className='btn-sort col-md-1 col-sm-2' onClick={sortRatings}>
+            <i class='fas fa-sort'></i>
+          </button>
+        </div>
         {Object.keys(searchResult).length === 0 && (
           <div>
-            {getPaginatedData().map((friend) => {
+            {getPageData().map((friend) => {
               return (
                 <FriendItem
                   key={friend.name}
